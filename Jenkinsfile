@@ -1,10 +1,10 @@
-node('unittest'){
+node('agent1'){
 
     stage('Checkout code'){
         checkout scm
     }
 
-    def image = docker.build("unittests:${env.BRANCH_NAME}")
+    def image = docker.build("unittest:${env.BRANCH_NAME}")
 
     parallel unittest: {
         stage('Run unittests'){
